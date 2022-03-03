@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 class CharacterClient: APIClient, BaseCharacterClient {
-    
     func characters(_ endpoint: APIEndpoint) -> AnyPublisher<[CharacterModel], Error> {
         guard let url = environment.urlComponents(endpoint: endpoint.value).url else {
             fatalError("Cloudn' create URLComponents")
