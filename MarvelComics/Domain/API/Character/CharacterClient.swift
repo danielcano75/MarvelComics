@@ -10,8 +10,8 @@ import Combine
 
 class CharacterClient: APIClient, BaseCharacterClient {
     
-    func characters() -> AnyPublisher<[CharacterModel], Error> {
-        guard let url = environment.urlComponents(endpoint: APIEndpoint.characters.value).url else {
+    func characters(_ endpoint: APIEndpoint) -> AnyPublisher<[CharacterModel], Error> {
+        guard let url = environment.urlComponents(endpoint: endpoint.value).url else {
             fatalError("Cloudn' create URLComponents")
         }
         let request = URLRequest(url: url)
@@ -21,8 +21,8 @@ class CharacterClient: APIClient, BaseCharacterClient {
             .eraseToAnyPublisher()
     }
     
-    func character(by id: Int) -> AnyPublisher<CharacterModel, Error> {
-        let enpoint = APIEndpoint.characters.value + "/\(id)"
+    func character(_ endpoint: APIEndpoint, by id: Int) -> AnyPublisher<CharacterModel, Error> {
+        let enpoint = endpoint.value + "/\(id)"
         guard let url = environment.urlComponents(endpoint: enpoint).url else {
             fatalError("Cloudn' create URLComponents")
         }
