@@ -2,6 +2,44 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AppConfig</key>
+	<dict>
+		<key>base_host</key>
+		<string>$(base_host)</string>
+		<key>current_scheme_name</key>
+		<string>$(current_scheme_name)</string>
+		<key>private_key</key>
+		<string>$(private_key)</string>
+		<key>protocol</key>
+		<string>$(protocol)</string>
+		<key>public_key</key>
+		<string>$(public_key)</string>
+		<key>timeout_interval</key>
+		<string>$(timeout_interval)</string>
+	</dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>gateway.marvel.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MarvelRegular-Dj83.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -21,41 +59,5 @@
 			</array>
 		</dict>
 	</dict>
-    <key>AppConfig</key>
-    <dict>
-        <key>public_key</key>
-        <string>$(public_key)</string>
-        <key>private_key</key>
-        <string>$(private_key)</string>
-        <key>base_host</key>
-        <string>$(base_host)</string>
-        <key>current_scheme_name</key>
-        <string>$(current_scheme_name)</string>
-        <key>protocol</key>
-        <string>$(protocol)</string>
-        <key>timeout_interval</key>
-        <string>$(timeout_interval)</string>
-    </dict>
-    <key>CFBundleDisplayName</key>
-    <string>$(app_name)</string>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-        <key>NSAllowsLocalNetworking</key>
-        <true/>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>gateway.marvel.com</key>
-            <dict>
-                <key>NSExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSExceptionRequiresForwardSecrecy</key>
-                <false/>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-            </dict>
-        </dict>
-    </dict>
 </dict>
 </plist>
