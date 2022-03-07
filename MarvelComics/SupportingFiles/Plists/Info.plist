@@ -6,6 +6,10 @@
 	<dict>
 		<key>base_host</key>
 		<string>$(base_host)</string>
+		<key>version_host</key>
+		<string>$(version_host)</string>
+		<key>type_host</key>
+		<string>$(type_host)</string>
 		<key>current_scheme_name</key>
 		<string>$(current_scheme_name)</string>
 		<key>private_key</key>
@@ -25,6 +29,15 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>i.annihil.us</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSExceptionRequiresForwardSecrecy</key>
+                <false/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
 			<key>gateway.marvel.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
@@ -53,8 +66,6 @@
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
 				</dict>
 			</array>
 		</dict>

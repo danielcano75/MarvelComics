@@ -11,7 +11,7 @@ class CharacterModel: Codable {
     let id: Int
     let name: String
     let characterDescription: String
-    let modified: Date
+    let modified: String
     let thumbnail: ThumbnailModel
     let resourceURI: String
     let comics: ComicsModel
@@ -32,5 +32,11 @@ class CharacterModel: Codable {
         case stories
         case events
         case urls
+    }
+}
+
+extension CharacterModel {
+    func url() -> URL? {
+        return URL(string: thumbnail.path + "." + thumbnail.thumbnailExtension)
     }
 }

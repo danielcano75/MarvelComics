@@ -17,6 +17,8 @@ app_icon = AppIcon
 
 // Endpoints configuration
 base_host = gateway.marvel.com
+version_host = /v1
+type_host = /public
 
 // Connection
 timeout_interval = 120
