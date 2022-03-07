@@ -25,10 +25,12 @@ public struct Environment {
     }
     
     public func urlComponents(endpoint: String) -> URLComponents {
+        let version = configuration(.version_host) ?? ""
+        let type = configuration(.type_host) ?? ""
         var components = URLComponents()
         components.scheme = configuration(.connection_protocol)
         components.host = configuration(.base_host)
-        components.path = endpoint
+        components.path = version + type + endpoint
         components.queryItems = queryItems()
         return components
     }

@@ -7,19 +7,14 @@
 
 import Foundation
 
-enum StoryType: String, Codable {
-    case cover = "cover"
-    case interiorStory = "interiorStory"
-}
-
 class StoryModel: Codable {
     let resourceURI: String
     let name: String
-    let type: StoryType
+    let type: String
     
     init(resourceURI: String,
          name: String,
-         type: StoryType) {
+         type: String) {
         self.resourceURI = resourceURI
         self.name = name
         self.type = type
