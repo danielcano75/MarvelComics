@@ -1,0 +1,29 @@
+//
+//  MarvelComics.xcconfig
+//  MarvelComics
+//
+//  Created by Daniel Cano Arbelaez on 3/03/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Config name
+current_scheme_name = MarvelComics
+
+// App Config
+app_name = Marvel
+app_icon = AppIcon
+
+// Endpoints configuration
+base_host = gateway.marvel.com
+version_host = /v1
+type_host = /public
+
+// Connection
+timeout_interval = 120
+protocol = https
+
+// Marvel Api Keys
+public_key = 3b0ebb401f1b015acbc773f3274d1eae
+private_key = 019ba45160ef14236a16d714cd0b498d479db35f
