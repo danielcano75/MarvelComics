@@ -9,6 +9,6 @@ import Foundation
 import Combine
 
 protocol BaseCharacterClient {
-    func characters(_ endpoint: APIEndpoint) -> AnyPublisher<APIResponseModel<CharacterModel>, Error>
+    func characters(_ endpoint: APIEndpoint, offset: String?, name: String?) -> AnyPublisher<APIResponseModel<CharacterModel>, Error>
     func character(_ endpoint: APIEndpoint, by id: Int) -> AnyPublisher<APIResponseModel<CharacterModel>, Error>
 }

@@ -8,6 +8,6 @@
 import Foundation
 
 protocol BaseCharactersViewController {
-    func refreshData()
+    func did(change state: CharactersViewState)
     func message(error: String)
 }

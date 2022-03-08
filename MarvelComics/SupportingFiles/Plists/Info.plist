@@ -6,10 +6,6 @@
 	<dict>
 		<key>base_host</key>
 		<string>$(base_host)</string>
-		<key>version_host</key>
-		<string>$(version_host)</string>
-		<key>type_host</key>
-		<string>$(type_host)</string>
 		<key>current_scheme_name</key>
 		<string>$(current_scheme_name)</string>
 		<key>private_key</key>
@@ -20,6 +16,10 @@
 		<string>$(public_key)</string>
 		<key>timeout_interval</key>
 		<string>$(timeout_interval)</string>
+		<key>type_host</key>
+		<string>$(type_host)</string>
+		<key>version_host</key>
+		<string>$(version_host)</string>
 	</dict>
 	<key>NSAppTransportSecurity</key>
 	<dict>
@@ -29,16 +29,16 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>i.annihil.us</key>
-            <dict>
-                <key>NSExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSExceptionRequiresForwardSecrecy</key>
-                <false/>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-            </dict>
 			<key>gateway.marvel.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>i.annihil.us</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>

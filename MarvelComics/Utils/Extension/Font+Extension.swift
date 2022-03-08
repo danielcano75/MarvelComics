@@ -16,6 +16,7 @@ enum DecorationType: String {
 }
 
 enum FontSizeType: CGFloat {
+    case navigationLargeTitle = 34.0
     case navigationTitle = 24.0
     case title = 17.0
     case text = 14.0
