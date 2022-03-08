@@ -31,6 +31,7 @@ extension CharacterDetailViewController {
         
         let placeholder = UIImage(named: "Placeholder")
         thumbnail.contentMode = .scaleAspectFill
+        thumbnail.clipsToBounds = true
         thumbnail.sd_setImage(with: viewModel.character.url(),
                               placeholderImage: placeholder,
                               options: .delayPlaceholder,
