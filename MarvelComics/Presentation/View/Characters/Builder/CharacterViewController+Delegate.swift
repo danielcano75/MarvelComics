@@ -15,6 +15,16 @@ extension CharactersViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        let character = viewModel.characters[indexPath.row]
+        let detail = CharacterDetailViewController()
+        let viewModel = CharacterDetailViewModel.make(controller: detail)
+        detail.characterId = character.id
+        detail.viewModel = viewModel
+        present(detail, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
                         willDisplay cell: UICollectionViewCell,
                         forItemAt indexPath: IndexPath) {
         if viewModel.characters.count > ViewTraits.minSizeToFetch {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CharacterModel: Codable {
+class CharacterModel: NSObject, Codable {
     let id: Int
     let name: String
     let characterDescription: String
@@ -38,5 +38,13 @@ class CharacterModel: Codable {
 extension CharacterModel {
     func url() -> URL? {
         return URL(string: thumbnail.path + "." + thumbnail.thumbnailExtension)
+    }
+}
+
+// MARK: Mock -
+extension CharacterModel {
+    static func mock(filename: String) -> CharacterModel {
+        let character: CharacterModel = CharacterModel.JSONToObject(with: filename)
+        return character
     }
 }

@@ -7,7 +7,5 @@
 
 import Foundation
 
-protocol BaseCharactersViewController {
-    func did(change state: CharactersViewState)
-    func message(error: String)
+protocol BaseCharactersViewController: BaseViewControllerProtocol {
 }

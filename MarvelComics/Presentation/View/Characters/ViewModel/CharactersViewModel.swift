@@ -9,13 +9,12 @@ import Foundation
 import Combine
 
 class CharactersViewModel: BaseCharactersViewModel {
-    var state: CharactersViewState = .loading {
+    var state: ViewState = .loading {
         didSet {
             controller.did(change: state)
         }
     }
     var characters: [CharacterModel] = []
-    
     var cancellables = Set<AnyCancellable>()
     
     private let controller: BaseCharactersViewController

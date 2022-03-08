@@ -12,6 +12,8 @@ class CharactersViewController: BaseViewController {
     var viewModel: BaseCharactersViewModel!
     let searchController = UISearchController()
     let charactersCollectionView = CharacterCollectionView()
+    let imgError: UIImageView = UIImageView(frame: .zero)
+    let lblError: UILabel = UILabel(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +23,25 @@ class CharactersViewController: BaseViewController {
 }
 
 extension CharactersViewController: BaseCharactersViewController {
-    func did(change state: CharactersViewState) {
+    func did(change state: ViewState) {
+        imgError.isHidden = true
+        lblError.isHidden = true
+        let gradient = SkeletonGradient(baseColor: .secondary,
+                                        secondaryColor: .black)
+        view.stopSkeletonAnimation()
+        charactersCollectionView.hideSkeleton()
         switch state {
         case .loading:
+            charactersCollectionView.isHidden = false
             view.startSkeletonAnimation()
-            charactersCollectionView.showAnimatedGradientSkeleton()
+            charactersCollectionView.showAnimatedGradientSkeleton(usingGradient: gradient)
         case .error:
-            print("ERROR!!!")
+            charactersCollectionView.isHidden = true
+            imgError.isHidden = false
+            lblError.isHidden = false
         case .loaded:
-            view.stopSkeletonAnimation()
-            charactersCollectionView.hideSkeleton()
+            charactersCollectionView.isHidden = false
+            break
         }
         charactersCollectionView.reloadData()
     }
