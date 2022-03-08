@@ -9,25 +9,6 @@ import Foundation
 import Combine
 
 class CharacterClient: APIClient, BaseCharacterClient {
-    enum CharacterQueryItem: String {
-        case limit = "limit"
-        case offset = "offset"
-        case name = "nameStartsWith"
-        
-        var key: String {
-            rawValue
-        }
-        
-        var value: String {
-            switch self {
-            case .limit:
-                return "100"
-            default:
-                return ""
-            }
-        }
-    }
-    
     static func make() -> CharacterClient {
         return CharacterClient()
     }

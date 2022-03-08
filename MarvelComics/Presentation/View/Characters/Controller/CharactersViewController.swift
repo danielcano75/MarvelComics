@@ -47,6 +47,6 @@ extension CharactersViewController: BaseCharactersViewController {
     }
     
     func message(error: String) {
-        
+        lblError.text = error
     }
 }
