@@ -14,20 +14,31 @@ class BaseNavigationViewController: UINavigationController {
     }
     
     private func build() {
-        let attributes: [NSAttributedString.Key : Any] = [
+        let standartAttributes: [NSAttributedString.Key : Any] = [
             .foregroundColor: UIColor.primary,
             .font: UIFont.marvel(size: .navigationTitle)
         ]
         
+        let largeAttributes: [NSAttributedString.Key : Any] = [
+            .foregroundColor: UIColor.primary,
+            .font: UIFont.marvel(size: .navigationLargeTitle)
+        ]
+        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = .white
-        appearance.titleTextAttributes = attributes
-        appearance.largeTitleTextAttributes = attributes
+        appearance.backgroundColor = .secondary
+        appearance.titleTextAttributes = standartAttributes
+        appearance.largeTitleTextAttributes = largeAttributes
         
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().tintColor = .primary
+        navigationBar.prefersLargeTitles = true
+        navigationBar.standardAppearance = appearance
+        navigationBar.compactAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
+        navigationBar.tintColor = .primary
+        if #available(iOS 15.0, *) {
+            navigationBar.compactScrollEdgeAppearance = appearance
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

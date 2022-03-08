@@ -9,6 +9,11 @@ import Foundation
 import Combine
 
 class CharactersViewModel: BaseCharactersViewModel {
+    var state: CharactersViewState = .loading {
+        didSet {
+            controller.did(change: state)
+        }
+    }
     var characters: [CharacterModel] = []
     
     var cancellables = Set<AnyCancellable>()
@@ -28,20 +33,36 @@ class CharactersViewModel: BaseCharactersViewModel {
                                client: client)
     }
     
-    func fetchCharacters() {
-        client.characters(.characters)
+    func fetchCharacters(offset: String?, name: String?) {
+        let storeCharacters = self.characters
+        cancellables.removeAll()
+        changeToLoading(offset: offset)
+        client.characters(.characters, offset: offset, name: name)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] result in
                 if case .failure(let error) = result {
                     print(error.localizedDescription)
                     self?.characters = []
-                    self?.controller.refreshData()
                     self?.controller.message(error: error.localizedDescription)
+                    self?.state = .error
                 }
         } receiveValue: { [weak self] response in
-            self?.characters = response.data.results
-            self?.controller.refreshData()
+            if offset == nil {
+                self?.characters = response.data.results
+            } else {
+                self?.characters = storeCharacters
+                self?.characters.append(contentsOf: response.data.results)
+            }
+            self?.state = .loaded
         }
         .store(in: &cancellables)
+    }
+    
+    private func changeToLoading(offset: String?) {
+        if offset == nil {
+            let response = APIResponseModel<CharacterModel>.mock(filename: FileNameType.characters.value)
+            characters = response.data.results
+            state = .loading
+        }
     }
 }

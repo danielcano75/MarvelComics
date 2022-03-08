@@ -12,7 +12,7 @@
 current_scheme_name = MarvelComics
 
 // App Config
-app_name = Heroes
+app_name = Marvel
 app_icon = AppIcon
 
 // Endpoints configuration
