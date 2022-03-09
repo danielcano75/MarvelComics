@@ -18,8 +18,8 @@ class CharacterClientMock: APIClient, BaseCharacterClient {
     
     var responseType: ResponseType
     
-    var charactersSpy:(() -> Void)?
-    var characterSpy:(() -> Void)?
+    var charactersSpy:((String?, String?) -> Void)?
+    var characterSpy:((Int) -> Void)?
     
     static func make() -> CharacterClientMock {
         return CharacterClientMock()
@@ -31,7 +31,7 @@ class CharacterClientMock: APIClient, BaseCharacterClient {
     }
     
     func characters(_ endpoint: APIEndpoint, offset: String?, name: String?) -> AnyPublisher<APIResponseModel<CharacterModel>, Error> {
-        charactersSpy?()
+        charactersSpy?(offset, name)
         switch responseType {
         case .success:
             let response: APIResponseModel<CharacterModel> = APIResponseModel<CharacterModel>.mock(filename: FileNameType.characters.value)
@@ -45,7 +45,7 @@ class CharacterClientMock: APIClient, BaseCharacterClient {
     }
     
     func character(_ endpoint: APIEndpoint, by id: Int) -> AnyPublisher<APIResponseModel<CharacterModel>, Error> {
-        characterSpy?()
+        characterSpy?(id)
         switch responseType {
         case .success:
             let response: APIResponseModel<CharacterModel> = APIResponseModel<CharacterModel>.mock(filename: FileNameType.characters.value)

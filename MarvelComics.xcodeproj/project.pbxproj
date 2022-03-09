@@ -47,6 +47,9 @@
 		B25C949427D812A300050CD6 /* BaseCharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C949227D812A300050CD6 /* BaseCharacterDetailViewModel.swift */; };
 		B25C949527D812A300050CD6 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C949327D812A300050CD6 /* CharacterDetailViewModel.swift */; };
 		B25C949F27D817BA00050CD6 /* CharactersViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C949E27D817BA00050CD6 /* CharactersViewModelTest.swift */; };
+		B25C94A427D8F20900050CD6 /* CharacterDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C94A327D8F20900050CD6 /* CharacterDetailViewModelTest.swift */; };
+		B25C94A727D8FAC100050CD6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C94A627D8FAC100050CD6 /* ErrorView.swift */; };
+		B25C94A927D8FEA700050CD6 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C94A827D8FEA700050CD6 /* Notification+Extension.swift */; };
 		B283A4E727D0EFC20038758C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B283A4E627D0EFC20038758C /* AppDelegate.swift */; };
 		B283A4E927D0EFC20038758C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B283A4E827D0EFC20038758C /* SceneDelegate.swift */; };
 		B283A4F027D0EFC40038758C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B283A4EF27D0EFC40038758C /* Assets.xcassets */; };
@@ -126,6 +129,9 @@
 		B25C949227D812A300050CD6 /* BaseCharacterDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		B25C949327D812A300050CD6 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		B25C949E27D817BA00050CD6 /* CharactersViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModelTest.swift; sourceTree = "<group>"; };
+		B25C94A327D8F20900050CD6 /* CharacterDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModelTest.swift; sourceTree = "<group>"; };
+		B25C94A627D8FAC100050CD6 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		B25C94A827D8FEA700050CD6 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		B283A4E327D0EFC20038758C /* MarvelComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B283A4E627D0EFC20038758C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B283A4E827D0EFC20038758C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 				B25C945927D6A3E300050CD6 /* View+Extension.swift */,
 				B25C948527D7A86A00050CD6 /* Decodable+Extension.swift */,
 				B25C948F27D7F77E00050CD6 /* Device+Extension.swift */,
+				B25C94A827D8FEA700050CD6 /* Notification+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -271,6 +278,7 @@
 		B25C941B27D25F1D00050CD6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B25C94A527D8FAAB00050CD6 /* Components */,
 				B25C941F27D2605D00050CD6 /* Base */,
 				B25C941C27D25F2A00050CD6 /* Characters */,
 				B25C946C27D77FAB00050CD6 /* Character */,
@@ -453,8 +461,17 @@
 			isa = PBXGroup;
 			children = (
 				B25C949E27D817BA00050CD6 /* CharactersViewModelTest.swift */,
+				B25C94A327D8F20900050CD6 /* CharacterDetailViewModelTest.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B25C94A527D8FAAB00050CD6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B25C94A627D8FAC100050CD6 /* ErrorView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		B283A4DA27D0EFC20038758C = {
@@ -761,6 +778,7 @@
 				B25C944427D2A5D200050CD6 /* BaseCharactersViewModel.swift in Sources */,
 				B25C943027D28E5D00050CD6 /* CharacterViewController+Builder.swift in Sources */,
 				B25C942727D262BF00050CD6 /* Color+Extension.swift in Sources */,
+				B25C94A927D8FEA700050CD6 /* Notification+Extension.swift in Sources */,
 				B25C941727D12EDE00050CD6 /* String+Extension.swift in Sources */,
 				B25C943927D2A43B00050CD6 /* CharacterViewController+Delegate.swift in Sources */,
 				B283A52D27D113510038758C /* CharacterModel.swift in Sources */,
@@ -780,6 +798,7 @@
 				B25C949027D7F77E00050CD6 /* Device+Extension.swift in Sources */,
 				B283A53427D116EB0038758C /* ThumbnailModel.swift in Sources */,
 				B25C941127D1241B00050CD6 /* Environment.swift in Sources */,
+				B25C94A727D8FAC100050CD6 /* ErrorView.swift in Sources */,
 				B283A53027D114700038758C /* APIResponseModel.swift in Sources */,
 				B283A53827D117FA0038758C /* ComicModel.swift in Sources */,
 				B25C943E27D2A53E00050CD6 /* CharactersViewModel.swift in Sources */,
@@ -812,6 +831,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B25C949F27D817BA00050CD6 /* CharactersViewModelTest.swift in Sources */,
+				B25C94A427D8F20900050CD6 /* CharacterDetailViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1050,7 +1070,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.com.MarvelComicsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "MarvelComicsTests/MarvelComicsTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1078,7 +1097,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.com.MarvelComicsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "MarvelComicsTests/MarvelComicsTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarvelComics.app/MarvelComics";

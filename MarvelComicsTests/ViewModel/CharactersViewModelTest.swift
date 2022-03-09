@@ -14,12 +14,33 @@ class CharactersViewModelTest: XCTestCase {
         let controller = CharactersViewController()
         let client = CharacterClientMock(responseType: .success)
         let sut = createCharacterViewModel(controller: controller, client: client)
+        controller.viewModel = sut
         let expectation = XCTestExpectation(description: "characters")
-        client.charactersSpy = {
+        client.charactersSpy = { queryOffset, queryName in
+            XCTAssertNil(queryOffset)
+            XCTAssertNil(queryName)
             expectation.fulfill()
         }
         sut.fetchCharacters(offset: nil,
                             name: nil)
+        wait(for: [expectation], timeout: 0.1)
+    }
+    
+    func testFetchCharactersWithQueryParameters_Success() {
+        let offset = "0"
+        let name = "3-D Man"
+        let controller = CharactersViewController()
+        let client = CharacterClientMock(responseType: .success)
+        let sut = createCharacterViewModel(controller: controller, client: client)
+        controller.viewModel = sut
+        let expectation = XCTestExpectation(description: "characters")
+        client.charactersSpy = { queryOffset, queryName in
+            XCTAssertEqual(offset, queryOffset)
+            XCTAssertEqual(name, queryName)
+            expectation.fulfill()
+        }
+        sut.fetchCharacters(offset: offset,
+                            name: name)
         wait(for: [expectation], timeout: 0.1)
     }
     
