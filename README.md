@@ -14,3 +14,4 @@ This is a test app whose data source belongs to Marvel comics
 ![Muestra1](/Samples/IMG_2.png)
 ![Muestra1](/Samples/IMG_3.png)
 ![Muestra1](/Samples/IMG_4.png)
+![Muestra1](/Samples/IMG_5.png)
