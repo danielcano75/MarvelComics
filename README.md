@@ -10,7 +10,7 @@ This is a test app whose data source belongs to Marvel comics
 * We show the detailed view of the selected character ✔️
 
 ## Samples 🖼️
-![Muestra1](/Samples/IMG_1.PNG)
-![Muestra1](/Samples/IMG_2.PNG)
-![Muestra1](/Samples/IMG_3.PNG)
-![Muestra1](/Samples/IMG_4.PNG)
+![Muestra1](/Samples/IMG_1.png)
+![Muestra1](/Samples/IMG_2.png)
+![Muestra1](/Samples/IMG_3.png)
+![Muestra1](/Samples/IMG_4.png)
