@@ -500,8 +500,8 @@
 			children = (
 				B25C940B27D1228C00050CD6 /* Utils */,
 				B283A51627D105E50038758C /* Presentation */,
-				B283A51727D105EE0038758C /* Domain */,
-				B283A51827D105F80038758C /* Data */,
+				B283A51727D105EE0038758C /* Client */,
+				B283A51827D105F80038758C /* Models */,
 				B25C940727D11EF900050CD6 /* SupportingFiles */,
 				B283A4E627D0EFC20038758C /* AppDelegate.swift */,
 				B283A4E827D0EFC20038758C /* SceneDelegate.swift */,
@@ -534,22 +534,23 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		B283A51727D105EE0038758C /* Domain */ = {
+		B283A51727D105EE0038758C /* Client */ = {
 			isa = PBXGroup;
 			children = (
 				B283A51C27D10F6A0038758C /* Endpoint */,
 				B283A51927D10F130038758C /* API */,
 			);
-			path = Domain;
+			path = Client;
 			sourceTree = "<group>";
 		};
-		B283A51827D105F80038758C /* Data */ = {
+		B283A51827D105F80038758C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B283A52A27D113290038758C /* Models */,
+				B283A52E27D1145A0038758C /* Response */,
+				B283A52B27D113400038758C /* Character */,
 				B283A51F27D111830038758C /* Error */,
 			);
-			path = Data;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B283A51927D10F130038758C /* API */ = {
@@ -594,15 +595,6 @@
 				B283A52827D112AD0038758C /* CharacterClientMock.swift */,
 			);
 			path = Character;
-			sourceTree = "<group>";
-		};
-		B283A52A27D113290038758C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B283A52E27D1145A0038758C /* Response */,
-				B283A52B27D113400038758C /* Character */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		B283A52B27D113400038758C /* Character */ = {

@@ -5,6 +5,7 @@ This is a test app whose data source belongs to Marvel comics
 * iOS 13.0+
 * Xcode 13.2.1
 
+* This project is created under the architecture MVVM + Combine ✔️
 * We list and paginate the list of marvel characters ✔️
 * we added a search engine to the main view to make it easier to find a character ✔️
 * We show the detailed view of the selected character ✔️
