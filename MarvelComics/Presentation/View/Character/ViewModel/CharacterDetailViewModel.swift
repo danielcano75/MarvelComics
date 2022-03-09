@@ -41,13 +41,11 @@ class CharacterDetailViewModel: BaseCharacterDetailViewModel {
             .sink { [weak self] result in
                 if case .failure(let error) = result {
                     print(error.localizedDescription)
-                    self?.controller.message(error: error.localizedDescription)
-                    self?.state = .error
+                    self?.state = .error(message: error.localizedDescription)
                 }
         } receiveValue: { [weak self] response in
             guard let character = response.data.results.first else {
-                self?.controller.message(error: "TODO: NOT FOUND CHARACTER BY THIS ID!!!")
-                self?.state = .error
+                self?.state = .error(message: "NOT FOUND CHARACTER BY THIS ID")
                 return
             }
             self?.character = character

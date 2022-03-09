@@ -26,26 +26,43 @@ class CharacterDetailViewController: BaseViewController {
         setUp()
         viewModel.fetchCharacter(by: characterId)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(retryfetchCharacter(_:)),
+                                               name: .retry,
+                                               object: nil)
+    }
+    
+    @objc private func retryfetchCharacter(_ notification: Notification) {
+        viewModel.fetchCharacter(by: characterId)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 extension CharacterDetailViewController: BaseCharacterDetailViewController {
     func did(change state: ViewState) {
+        errorView.isHidden = true
         let gradient = SkeletonGradient(baseColor: .secondary,
                                         secondaryColor: .black)
         switch state {
         case .loading:
             view.startSkeletonAnimation()
             contentView.showAnimatedGradientSkeleton(usingGradient: gradient)
-        case .error:
-            print("ERROR!!!")
+            scrollDetail.isHidden = false
+        case .error(let message):
+            scrollDetail.isHidden = true
+            showError(message: message)
         case .loaded:
+            scrollDetail.isHidden = false
             updateView()
             view.stopSkeletonAnimation()
             contentView.hideSkeleton()
         }
-    }
-    
-    func message(error: String) {
-        
     }
 }
