@@ -18,6 +18,7 @@ extension CharacterDetailViewController {
         static let padding: CGFloat = 16
         static let bottom: CGFloat = 16
         static let btnCloseSize: CGSize = CGSize(width: 44, height: 44)
+        static let imageSize: CGSize = CGSize(width: 207, height: 207)
     }
     
     func setUp() {
@@ -77,9 +78,7 @@ extension CharacterDetailViewController {
         lblCopyright.paddingRight = ViewTraits.padding
         lblCopyright.paddingBottom =  UIDevice.current.notchSize + ViewTraits.paddingLabelVertical
         
-        view.subviews.forEach {
-            $0.isUserInteractionEnabled = true
-        }
+        errorView.background = .secondary
         
         setUpSkeletoneable()
         setupConstraints()
@@ -99,6 +98,7 @@ extension CharacterDetailViewController {
         contentView.addSubview(lblTitle)
         contentView.addSubview(separator)
         contentView.addSubview(lblDescription)
+        view.addSubview(errorView)
         view.addSubview(btnClose)
         view.addSubview(lblCopyright)
         
@@ -135,6 +135,8 @@ extension CharacterDetailViewController {
         lblCopyright.autoPinEdge(toSuperviewEdge: .leading)
         lblCopyright.autoPinEdge(toSuperviewEdge: .bottom)
         lblCopyright.autoPinEdge(toSuperviewEdge: .trailing)
+        
+        errorView.autoPinEdgesToSuperviewEdges()
     }
     
     func updateView() {

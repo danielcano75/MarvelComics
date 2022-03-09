@@ -9,5 +9,4 @@ import Foundation
 
 protocol BaseViewControllerProtocol {
     func did(change state: ViewState)
-    func message(error: String)
 }

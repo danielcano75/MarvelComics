@@ -42,8 +42,7 @@ class CharactersViewModel: BaseCharactersViewModel {
                 if case .failure(let error) = result {
                     print(error.localizedDescription)
                     self?.characters = []
-                    self?.controller.message(error: error.localizedDescription)
-                    self?.state = .error
+                    self?.state = .error(message: error.localizedDescription)
                 }
         } receiveValue: { [weak self] response in
             if offset == nil {
